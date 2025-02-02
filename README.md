@@ -1,42 +1,53 @@
-# ☁️ Projet - DBT ETL/ELT!
-Ce projet propose une introduction à l'outils **DBT (Data Build Tool)**, un élément clé pour les transformations de données dans un processus ETL/ELT.
-ETL/ELT signifie :
-- Extract (Extraire) : 🗂️📤 (Extraction des données depuis les sources)
-- Transform (Transformer) : 🔄🧩 (Transformation et nettoyage des données)
-- Load (Charger) : 📥💾 (Chargement des données dans une destination)
+# ☁️ Projet - Building Pipeline with MageAI/Postgres
 
-## 🎯 Objectifs de la challenge
+Dans ce projet, nous verrons comment créer un pipeline en utilisant les "blocs" de MageAI.
 
-- ✅ Découvrir le fonctionnement et l'intérêt de DBT pour les transformations de données.
-- ✅ Installer et configurer DBT Core en local.
-- ✅ Comprendre la structure d'un projet DBT.
+## 🎯 Objectifs de ce projet
 
-## 🚀 Instructions pour démarrer le projet
+- ✅ Récupérer des données avec le bloc Data loader.
+- ✅ Formater cette donnée via le bloc Transformer.
+- ✅ Insérer les données formatées dans une base de données avec le block Data exporter.
 
-### 1. Prérequis
-- Python installé sur votre machine.
-- Une base de données MySQL configurée localement.
-- La bibliothèque **DBT Core** installée dans un environnement virtuel Python.
+## 🚀 Étapes nécessaires:
 
-### 2. Installation
+### 1. Bien Définir le ou les objectifs de notre pipeline :
+- Pourquoi ce pipeline est-il nécessaire ?
+- Quels résultats ou transformations sont attendus ?
 
-1. Créez un environnement virtuel Python dans terminal de VSCode:
-    - python -m venv my-dbt-env
-    - .\my-dbt-env\Scripts\activate 
+### 2. Identification des sources de données :
+- Quelles sont les sources de données à utiliser ? Bases de données, fichiers CSV, API, data lakes, etc.
+- Aurais-je besoin d'agréger des données provenant de multiples sources ?
 
+### 3. Format des données:
+- Comment mes données sont-elles stockées ? Dans une base de données structurée, non structurée ?
+- Quelles sont les tables de ma base de données ?
+- Un nettoyage des données est-il nécessaire ?
 
-2. Utilisation du projet de démarrage
+### 4. Fréquence des mises à jour :
+- Le pipeline sera-t-il déclenché périodiquement (horaire, journalier) ou en fonction d’un événement ?
 
-Essayez d'exécuter les commandes suivantes :
-- `dbt init`
-- `dbt run`
-- `dbt test`
-- `dbt seed`
+### 5. Identification des parties prenantes :
+- Qui sont les utilisateurs des données et des résultats du pipeline ?
+- Y a-t-il des besoins de dashboarding, de reporting, etc. ?
 
-### 3. Ressources
+## ⚠️ Guide de dépannage
 
-- Pour en savoir plus sur dbt, consultez [la documentation](https://docs.getdbt.com/docs/introduction)
-- Consultez [Discourse](https://discourse.getdbt.com/) pour des questions et réponses fréquentes
-- Rejoignez le [chat](https://community.getdbt.com/) sur Slack pour des discussions et du support en direct
-- Trouvez des [événements dbt](https://events.getdbt.com) près de chez vous
-- Consultez [le blog](https://blog.getdbt.com/) pour les dernières actualités sur le développement et les meilleures pratiques de dbt
+### 1. Problèmes d'encodage
+Si vous voyez des caractères comme "Ã©", "Ã¨", etc. :
+
+- Vérifiez l'encodage dans le Data Loader en premier
+- Testez différents encodages (latin1, utf-8, iso-8859-1)
+- Utilisez les prints de diagnostic pour voir les données
+  
+### 2. Erreurs PostgreSQL
+Si vous avez des erreurs de connexion :
+
+- Il doit être dans le bon répertoire
+- La section 'MyConfigProfile' doit être présente
+- Les informations de connexion doivent être correctes
+
+Vérifiez que PostgreSQL est accessible :
+
+- Les services Docker sont-ils lancés ?
+- Les ports sont-ils corrects ?
+- Les identifiants sont-ils bons ?
