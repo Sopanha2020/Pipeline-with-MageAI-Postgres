@@ -33,14 +33,14 @@ Dans ce projet, nous verrons comment créer un pipeline en utilisant les "blocs"
 ## ⚠️ Guide de dépannage
 
 ### 1. Problèmes d'encodage
-Si vous voyez des caractères comme "Ã©", "Ã¨", etc. :
+Si on voit des caractères comme "Ã©", "Ã¨", etc. :
 
 - Vérifiez l'encodage dans le Data Loader en premier
 - Testez différents encodages (latin1, utf-8, iso-8859-1)
 - Utilisez les prints de diagnostic pour voir les données
   
 ### 2. Erreurs PostgreSQL
-Si vous avez des erreurs de connexion :
+Si on a des erreurs de connexion :
 
 - Il doit être dans le bon répertoire
 - La section 'MyConfigProfile' doit être présente
