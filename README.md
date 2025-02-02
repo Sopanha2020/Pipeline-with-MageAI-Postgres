@@ -6,7 +6,7 @@ Dans ce projet, nous verrons comment créer un pipeline en utilisant les "blocs"
 
 - ✅ Récupérer des données avec le bloc Data loader.
 - ✅ Formater cette donnée via le bloc Transformer.
-- ✅ Insérer les données formatées dans une base de données avec le block Data exporter.
+- ✅ Insérer les données formatées dans une base de données avec le bloc Data exporter.
 
 ## 🚀 Étapes nécessaires:
 
