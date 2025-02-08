@@ -104,14 +104,14 @@ git clone https://github.com/Sopanha2020/Pipeline-with-MageAI-Postgres.git
 Vérifiez que vous avez bien tous les fichiers nécessaires :
 
 ```
-Pipeline-with-MageAI-Postgres/
-│
-├── .env                  # Variables d'environnement
-├── docker-compose.yml    # Configuration Docker Compose
-├── Dockerfile           # Instructions de build de l'image
-├── io_config.yaml       # Configuration Mage AI
-├── requirements.txt     # Dépendances Python
-└── README_Windows.md            # Ce fichier
+    Pipeline-with-MageAI-Postgres/
+    │
+    ├── .env                  # Variables d'environnement
+    ├── docker-compose.yml    # Configuration Docker Compose
+    ├── Dockerfile           # Instructions de build de l'image
+    ├── io_config.yaml       # Configuration Mage AI
+    ├── requirements.txt     # Dépendances Python
+    └── README_Windows.md            # Ce fichier
 ```
 
 ## 4. Construction et démarrage des conteneurs
