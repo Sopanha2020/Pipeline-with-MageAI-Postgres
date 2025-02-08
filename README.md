@@ -52,7 +52,7 @@ Vérifiez que PostgreSQL est accessible :
 - Les ports sont-ils corrects ?
 - Les identifiants sont-ils bons ?
 
-## Prérequis
+## 💪Prérequis
 
 - Windows 10/11 avec WSL2 activé
 - [Docker Desktop](https://www.docker.com/products/docker-desktop/) installé et fonctionnel
