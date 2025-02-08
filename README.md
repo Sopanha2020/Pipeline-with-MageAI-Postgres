@@ -1,4 +1,4 @@
-# ☁️ Projet - Building Pipeline with MageAI/Postgres
+# ☁️ Projet - Building Pipeline with MageAI/Postgres (WINDOWS !!!!!)
 
 Dans ce projet, nous verrons comment créer un pipeline en utilisant les "blocs" de MageAI.
 
@@ -52,10 +52,6 @@ Vérifiez que PostgreSQL est accessible :
 - Les ports sont-ils corrects ?
 - Les identifiants sont-ils bons ?
 
-# Installation de Mage AI avec Docker et PostgreSQL (WINDOWS !!!!!)
-
-Ce guide vous permettra d'installer et de configurer Mage AI avec PostgreSQL dans un environnement Docker.
-
 ## Prérequis
 
 - Windows 10/11 avec WSL2 activé
@@ -101,18 +97,14 @@ python -m venv docker_mage
 
 ```bash
 # Cloner le repository
-git clone https://github.com/WildCodeSchool/data-training-resources.git repo_to_clone
-
-# Accéder au dossier du projet
-cd .\repo_to_clone\
-```
+git clone https://github.com/Sopanha2020/Pipeline-with-MageAI-Postgres.git
 
 ## 3. Structure des fichiers
 
 Vérifiez que vous avez bien tous les fichiers nécessaires :
 
 ```
-repo_to_clone/
+Pipeline-with-MageAI-Postgres/
 │
 ├── .env                  # Variables d'environnement
 ├── docker-compose.yml    # Configuration Docker Compose
@@ -130,7 +122,7 @@ Assurez-vous d'être dans le bon dossier :
 pwd
 
 # Si ce n'est pas le cas, naviguez vers le bon dossier
-cd repo_to_clone
+cd Pipeline-with-MageAI-Postgres
 ```
 
 Ensuite, lancez la construction et le démarrage :
