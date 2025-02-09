@@ -1,169 +1,151 @@
-# ☁️ Projet - Building Pipeline with MageAI/Postgres (WINDOWS !!!!!)
+# ☁️ Projet - Building Pipeline avec MageAI/Postgres (Windows)
 
-Dans ce projet, nous verrons comment créer un pipeline en utilisant les "blocs" de MageAI.
+Dans ce projet, nous allons apprendre à créer un pipeline en utilisant les "blocs" de MageAI.
 
-## 🎯 Objectifs de ce projet
+---
 
-- ✅ Récupérer des données avec le bloc Data loader.
-- ✅ Formater cette donnée via le bloc Transformer.
-- ✅ Insérer les données formatées dans une base de données avec le bloc Data exporter.
+## 🎯 Objectifs
 
-## 🚀 Étapes nécessaires:
+- ✅ **Récupérer** des données avec le bloc **Data Loader**.
+- ✅ **Formater** ces données via le bloc **Transformer**.
+- ✅ **Insérer** les données formatées dans une base de données avec le bloc **Data Exporter**.
 
-### 1. Bien Définir le ou les objectifs de notre pipeline :
+---
+
+## 🚀 Étapes
+
+### 1️⃣ Définir les Objectifs du Pipeline
 - Pourquoi ce pipeline est-il nécessaire ?
 - Quels résultats ou transformations sont attendus ?
 
-### 2. Identification des sources de données :
-- Quelles sont les sources de données à utiliser ? Bases de données, fichiers CSV, API, data lakes, etc.
-- Aurais-je besoin d'agréger des données provenant de multiples sources ?
+### 2️⃣ Identifier les Sources de Données
+- Bases de données, fichiers CSV, API, data lakes, etc.
+- Faut-il agréger plusieurs sources ?
 
-### 3. Format des données:
-- Comment mes données sont-elles stockées ? Dans une base de données structurée, non structurée ?
-- Quelles sont les tables de ma base de données ?
-- Un nettoyage des données est-il nécessaire ?
+### 3️⃣ Définir le Format des Données
+- Base de données structurée ou non structurée ?
+- Quelles sont les tables ?
+- Un nettoyage est-il nécessaire ?
 
-### 4. Fréquence des mises à jour :
-- Le pipeline sera-t-il déclenché périodiquement (horaire, journalier) ou en fonction d’un événement ?
+### 4️⃣ Définir la Fréquence des Mises à Jour
+- Périodique (horaire, journalier) ou événementiel ?
 
-### 5. Identification des parties prenantes :
-- Qui sont les utilisateurs des données et des résultats du pipeline ?
-- Y a-t-il des besoins de dashboarding, de reporting, etc. ?
+### 5️⃣ Identifier les Parties Prenantes
+- Qui sont les utilisateurs des données ?
+- Besoins en **dashboarding** ou **reporting** ?
 
-## ⚠️ Guide de dépannage
+---
 
-### 1. Problèmes d'encodage
-Si on voit des caractères comme "Ã©", "Ã¨", etc. :
+## ⚠️ Guide de Dépannage
 
-- Vérifiez l'encodage dans le Data Loader en premier
-- Testez différents encodages (latin1, utf-8, iso-8859-1)
-- Utilisez les prints de diagnostic pour voir les données
-  
-### 2. Erreurs PostgreSQL
-Si on a des erreurs de connexion :
+### 1️⃣ Problèmes d'Encodage
+- Vérifiez l'encodage dans le **Data Loader**.
+- Testez **utf-8**, **latin1**, **iso-8859-1**.
+- Ajoutez des **prints** pour inspecter les données.
 
-- Il doit être dans le bon répertoire
-- La section 'MyConfigProfile' doit être présente
-- Les informations de connexion doivent être correctes
+### 2️⃣ Erreurs PostgreSQL
+- Vérifiez la présence de `MyConfigProfile`.
+- Assurez-vous que **PostgreSQL est accessible** :
+  - 🔍 **Docker est-il lancé ?**
+  - 🔍 **Les ports sont-ils corrects ?**
+  - 🔍 **Les identifiants sont-ils valides ?**
 
-Vérifiez que PostgreSQL est accessible :
+---
 
-- Les services Docker sont-ils lancés ?
-- Les ports sont-ils corrects ?
-- Les identifiants sont-ils bons ?
+## 💪 Prérequis
 
-## 💪Prérequis
+✔️ **Windows 10/11 avec WSL2 activé**
+✔️ [Docker Desktop](https://www.docker.com/products/docker-desktop/)
+✔️ [Visual Studio Code](https://code.visualstudio.com/) (recommandé)
+✔️ Extension Docker pour VSCode
+✔️ **Git installé**
 
-- Windows 10/11 avec WSL2 activé
-- [Docker Desktop](https://www.docker.com/products/docker-desktop/) installé et fonctionnel
-- [Visual Studio Code](https://code.visualstudio.com/) (recommandé)
-- Extension Docker pour VSCode (recommandée)
-- Git installé sur votre machine
+---
 
-## 1. Préparation de l'environnement (Sur VSCode ou sur PowerShell windows, On recommande fortement VSCode)
+## 🔧 Installation et Configuration
 
-### 1.1 Nettoyage de Docker (si nécessaire)
-
-Si vous avez déjà travaillé avec Docker, il est recommandé de nettoyer votre environnement :
+### 1️⃣ Nettoyage de Docker (si nécessaire)
 
 ```bash
-# Arrêter tous les conteneurs en cours d'exécution
+# Arrêter et nettoyer Docker
 docker stop $(docker ps -a -q)
-
-# Supprimer tous les conteneurs
 docker rm $(docker ps -a -q)
-
-# Supprimer tous les volumes non utilisés
 docker volume prune
-
-# Supprimer toutes les images non utilisées
 docker system prune -a
 ```
+⚠️ **Attention** : `docker system prune -a` supprime toutes les images non utilisées.
 
-⚠️ **Attention** : La commande `docker system prune -a` supprimera toutes les images Docker non utilisées. Assurez-vous de ne pas avoir des images importantes que vous souhaitez conserver.
-
-### 1.2 Configuration de l'environnement Python
+### 2️⃣ Configuration de l'Environnement Python
 
 ```bash
 # Créer un environnement virtuel
 python -m venv docker_mage
 
-# Activer l'environnement virtuel
-## Sur Windows (PowerShell)
+# Activer l'environnement virtuel (PowerShell Windows)
 .\docker_mage\Scripts\activate
 ```
 
-## 2. Cloner le repository
+### 3️⃣ Cloner le Repository
 
 ```bash
-# Cloner le repository
 git clone https://github.com/Sopanha2020/Pipeline-with-MageAI-Postgres.git
-
-## 3. Structure des fichiers
-
-Vérifiez que vous avez bien tous les fichiers nécessaires :
-
-```
-    Pipeline-with-MageAI-Postgres/
-    │
-    ├── .env                  # Variables d'environnement
-    ├── docker-compose.yml    # Configuration Docker Compose
-    ├── Dockerfile           # Instructions de build de l'image
-    ├── io_config.yaml       # Configuration Mage AI
-    ├── requirements.txt     # Dépendances Python
-    └── README_Windows.md            # Ce fichier
 ```
 
-## 4. Construction et démarrage des conteneurs
+---
 
-Assurez-vous d'être dans le bon dossier :
+## 📂 Structure des Fichiers
+
+```
+Pipeline-with-MageAI-Postgres/
+│
+├── .env                  # Variables d'environnement
+├── docker-compose.yml    # Configuration Docker Compose
+├── Dockerfile            # Instructions de build de l'image
+├── io_config.yaml        # Configuration Mage AI
+├── requirements.txt      # Dépendances Python
+└── README_Windows.md     # Ce fichier
+```
+
+---
+
+## 🚀 Démarrage des Conteneurs
+
 ```bash
-# Vérifier que vous êtes dans le dossier mage-wildcamp
-pwd
-
-# Si ce n'est pas le cas, naviguez vers le bon dossier
 cd Pipeline-with-MageAI-Postgres
-```
 
-Ensuite, lancez la construction et le démarrage :
-```bash
-# Construire les images
 docker compose build
-
-# Démarrer les conteneurs
 docker compose up
 ```
-
-Pour exécuter en arrière-plan (mode détaché) :
+📌 **Pour exécuter en arrière-plan :**
 ```bash
 docker compose up -d
 ```
-## 5. Vérification de l'installation
 
-1. Ouvrez Docker Desktop et vérifiez que les deux conteneurs sont en cours d'exécution :
+---
+
+## ✅ Vérification de l'Installation
+
+1️⃣ **Ouvrir Docker Desktop** et vérifier les conteneurs :
    - `[PROJECT_NAME]_mageai`
    - `[PROJECT_NAME]_postgres`
 
-2. Accédez à l'interface Mage AI :
-   - Ouvrez votre navigateur
-   - Accédez à `http://localhost:6789`
+2️⃣ **Accéder à Mage AI**
+   - 🔗 `http://localhost:6789`
 
-## 6. Arrêt des conteneurs
+---
 
-Pour arrêter les conteneurs :
+## 🛑 Arrêt des Conteneurs
+
 ```bash
-# Si en mode détaché
-docker compose down
-
-# Si en mode interactif
-# Appuyez sur Ctrl+C puis exécutez :
 docker compose down
 ```
 
-## 7. Commandes utiles
+---
+
+## 🔄 Commandes Utiles
 
 ```bash
-# Voir les logs des conteneurs
+# Voir les logs
 docker compose logs
 
 # Voir les logs d'un conteneur spécifique
@@ -173,51 +155,50 @@ docker compose logs postgres
 # Redémarrer les conteneurs
 docker compose restart
 
-# Reconstruire les images et redémarrer les conteneurs
+# Reconstruire les images et redémarrer
 docker compose up --build
 ```
 
-## Résolution des problèmes courants
+---
 
-### Les conteneurs ne démarrent pas
+## 🔍 Résolution des Problèmes
 
-1. Vérifiez que Docker Desktop est en cours d'exécution
-2. Vérifiez que les ports 6789 et 5432 ne sont pas déjà utilisés
-3. Consultez les logs avec `docker compose logs`
+### 🚫 Les conteneurs ne démarrent pas
+1. **Docker Desktop est-il lancé ?**
+2. **Les ports 6789 et 5432 sont-ils libres ?**
+3. **Vérifier les logs** : `docker compose logs`
 
-### Erreur "port is already allocated"
-
+### ⚠️ Erreur "Port is already allocated"
 ```bash
-# Identifier le processus utilisant le port
+# Trouver le processus utilisant le port
 netstat -ano | findstr "6789"
 netstat -ano | findstr "5432"
 
-# Arrêter le processus (remplacer [PID] par l'ID du processus)
-taskkill /PID [PID] /F
+# Arrêter le processus
+Taskkill /PID [PID] /F
 ```
 
-### Problèmes de permissions
+### 🔑 Problèmes de Permissions (Windows)
+1. **Donner les droits à Docker Desktop sur votre dossier.**
+2. **Exécuter PowerShell en mode Administrateur.**
 
-Si vous rencontrez des problèmes de permissions sur Windows :
-1. Assurez-vous que Docker Desktop a accès à votre dossier de projet
-2. Exécutez PowerShell en tant qu'administrateur
+---
 
-## Support
+## 📌 Support et Conseils
 
-En cas de problème :
-1. Consultez les logs Docker
-2. Vérifiez que tous les fichiers de configuration sont correctement formatés
-3. Assurez-vous que Docker Desktop dispose de suffisamment de ressources
+1. **Vérifier les logs Docker.**
+2. **S'assurer que tous les fichiers de configuration sont corrects.**
+3. **Docker Desktop doit avoir assez de ressources (RAM, CPU, disque).**
+4. **Ne pas modifier les fichiers de configuration en cours d'exécution.**
+5. **Docker Desktop doit être mis à jour.**
 
-## Notes importantes
+---
 
-- Ne modifiez pas les fichiers de configuration pendant que les conteneurs sont en cours d'exécution
-- Assurez-vous d'avoir suffisamment d'espace disque disponible (minimum 10GB recommandé)
-- Gardez Docker Desktop à jour
-- En cas de modification des fichiers de configuration, redémarrez les conteneurs
+## 📚 Ressources Additionnelles
 
-## Ressources additionnelles
+📌 [Documentation Mage AI](https://docs.mage.ai/)
+📌 [Documentation Docker](https://docs.docker.com/)
+📌 [Documentation PostgreSQL](https://www.postgresql.org/docs/)
 
-- [Documentation officielle de Mage AI](https://docs.mage.ai/)
-- [Documentation Docker](https://docs.docker.com/)
-- [Documentation PostgreSQL](https://www.postgresql.org/docs/)
+---
+
