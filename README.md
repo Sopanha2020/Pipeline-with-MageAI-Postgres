@@ -51,8 +51,8 @@ Dans ce projet, nous allons apprendre à créer un pipeline en utilisant les "bl
   - 🔍 **Les identifiants sont-ils valides ?**
 
 ---
-
-## 💪 Prérequis
+## 🚀 Instructions pour démarrer le projet
+### 💪 Prérequis
 
 ✔️ **Windows 10/11 avec WSL2 activé**
 ✔️ [Docker Desktop](https://www.docker.com/products/docker-desktop/)
@@ -62,9 +62,9 @@ Dans ce projet, nous allons apprendre à créer un pipeline en utilisant les "bl
 
 ---
 
-## 🔧 Installation et Configuration
+### 🔧 Installation et Configuration
 
-### 1️⃣ Nettoyage de Docker (si nécessaire)
+#### 1️⃣ Nettoyage de Docker (si nécessaire)
 
 ```bash
 # Arrêter et nettoyer Docker
@@ -75,7 +75,7 @@ docker system prune -a
 ```
 ⚠️ **Attention** : `docker system prune -a` supprime toutes les images non utilisées.
 
-### 2️⃣ Configuration de l'Environnement Python
+#### 2️⃣ Configuration de l'Environnement Python
 
 ```bash
 # Créer un environnement virtuel
@@ -85,7 +85,7 @@ python -m venv docker_mage
 .\docker_mage\Scripts\activate
 ```
 
-### 3️⃣ Cloner le Repository
+#### 3️⃣ Cloner le Repository
 
 ```bash
 git clone https://github.com/Sopanha2020/Pipeline-with-MageAI-Postgres.git
@@ -93,7 +93,7 @@ git clone https://github.com/Sopanha2020/Pipeline-with-MageAI-Postgres.git
 
 ---
 
-## 📂 Structure des Fichiers
+### 📂 Structure des Fichiers
 
 ```
 Pipeline-with-MageAI-Postgres/
@@ -108,7 +108,7 @@ Pipeline-with-MageAI-Postgres/
 
 ---
 
-## 🚀 Démarrage des Conteneurs
+### 🚀 Démarrage des Conteneurs
 
 ```bash
 cd Pipeline-with-MageAI-Postgres
@@ -123,7 +123,7 @@ docker compose up -d
 
 ---
 
-## ✅ Vérification de l'Installation
+### ✅ Vérification de l'Installation
 
 1️⃣ **Ouvrir Docker Desktop** et vérifier les conteneurs :
    - `[PROJECT_NAME]_mageai`
@@ -134,7 +134,7 @@ docker compose up -d
 
 ---
 
-## 🛑 Arrêt des Conteneurs
+### 🛑 Arrêt des Conteneurs
 
 ```bash
 docker compose down
@@ -142,7 +142,7 @@ docker compose down
 
 ---
 
-## 🔄 Commandes Utiles
+### 🔄 Commandes Utiles
 
 ```bash
 # Voir les logs
@@ -161,14 +161,14 @@ docker compose up --build
 
 ---
 
-## 🔍 Résolution des Problèmes
+### 🔍 Résolution des Problèmes
 
-### 🚫 Les conteneurs ne démarrent pas
+#### 🚫 Les conteneurs ne démarrent pas
 1. **Docker Desktop est-il lancé ?**
 2. **Les ports 6789 et 5432 sont-ils libres ?**
 3. **Vérifier les logs** : `docker compose logs`
 
-### ⚠️ Erreur "Port is already allocated"
+#### ⚠️ Erreur "Port is already allocated"
 ```bash
 # Trouver le processus utilisant le port
 netstat -ano | findstr "6789"
@@ -178,13 +178,13 @@ netstat -ano | findstr "5432"
 Taskkill /PID [PID] /F
 ```
 
-### 🔑 Problèmes de Permissions (Windows)
+#### 🔑 Problèmes de Permissions (Windows)
 1. **Donner les droits à Docker Desktop sur votre dossier.**
 2. **Exécuter PowerShell en mode Administrateur.**
 
 ---
 
-## 📌 Support et Conseils
+### 📌 Support et Conseils
 
 1. **Vérifier les logs Docker.**
 2. **S'assurer que tous les fichiers de configuration sont corrects.**
@@ -194,7 +194,7 @@ Taskkill /PID [PID] /F
 
 ---
 
-## 📚 Ressources Additionnelles
+### 📚 Ressources Additionnelles
 
 📌 [Documentation Mage AI](https://docs.mage.ai/)
 📌 [Documentation Docker](https://docs.docker.com/)
