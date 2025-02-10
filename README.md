@@ -12,59 +12,9 @@ Dans ce projet, nous allons apprendre à créer un pipeline en utilisant les "bl
 
 ---
 
-## 🚀 Étapes
+## 🔧 Installation et Configuration
 
-### 1️⃣ Définir les Objectifs du Pipeline
-- Pourquoi ce pipeline est-il nécessaire ?
-- Quels résultats ou transformations sont attendus ?
-
-### 2️⃣ Identifier les Sources de Données
-- Bases de données, fichiers CSV, API, data lakes, etc.
-- Faut-il agréger plusieurs sources ?
-
-### 3️⃣ Définir le Format des Données
-- Base de données structurée ou non structurée ?
-- Quelles sont les tables ?
-- Un nettoyage est-il nécessaire ?
-
-### 4️⃣ Définir la Fréquence des Mises à Jour
-- Périodique (horaire, journalier) ou événementiel ?
-
-### 5️⃣ Identifier les Parties Prenantes
-- Qui sont les utilisateurs des données ?
-- Besoins en **dashboarding** ou **reporting** ?
-
----
-
-## ⚠️ Guide de Dépannage
-
-### 1️⃣ Problèmes d'Encodage
-- Vérifiez l'encodage dans le **Data Loader**.
-- Testez **utf-8**, **latin1**, **iso-8859-1**.
-- Ajoutez des **prints** pour inspecter les données.
-
-### 2️⃣ Erreurs PostgreSQL
-- Vérifiez la présence de `MyConfigProfile`.
-- Assurez-vous que **PostgreSQL est accessible** :
-  - 🔍 **Docker est-il lancé ?**
-  - 🔍 **Les ports sont-ils corrects ?**
-  - 🔍 **Les identifiants sont-ils valides ?**
-
----
-## 🚀 Instructions pour démarrer le projet
-### 💪 Prérequis
-
-    ✔️ **Windows 10/11 avec WSL2 activé**
-    ✔️ [Docker Desktop](https://www.docker.com/products/docker-desktop/)
-    ✔️ [Visual Studio Code](https://code.visualstudio.com/) (recommandé)
-    ✔️ Extension Docker pour VSCode
-    ✔️ **Git installé**
-
----
-
-### 🔧 Installation et Configuration
-
-#### 1️⃣ Nettoyage de Docker (si nécessaire)
+### 1️⃣ Nettoyage de Docker (si nécessaire)
 
 ```bash
 # Arrêter et nettoyer Docker
@@ -75,7 +25,7 @@ docker system prune -a
 ```
 ⚠️ **Attention** : `docker system prune -a` supprime toutes les images non utilisées.
 
-#### 2️⃣ Configuration de l'Environnement Python
+### 2️⃣ Configuration de l'Environnement Python
 
 ```bash
 # Créer un environnement virtuel
@@ -85,7 +35,7 @@ python -m venv docker_mage
 .\docker_mage\Scripts\activate
 ```
 
-#### 3️⃣ Cloner le Repository
+### 3️⃣ Cloner le Repository
 
 ```bash
 git clone https://github.com/Sopanha2020/Pipeline-with-MageAI-Postgres.git
