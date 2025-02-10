@@ -11,7 +11,16 @@ Dans ce projet, nous allons apprendre à créer un pipeline en utilisant les "bl
 - ✅ **Insérer** les données formatées dans une base de données avec le bloc **Data Exporter**.
 
 ---
+## 🚀 Instructions pour démarrer le projet
+### 💪 Prérequis
 
+    ✔️ **Windows 10/11 avec WSL2 activé**
+    ✔️ [Docker Desktop](https://www.docker.com/products/docker-desktop/)
+    ✔️ [Visual Studio Code](https://code.visualstudio.com/) (recommandé)
+    ✔️ Extension Docker pour VSCode
+    ✔️ **Git installé**
+
+---
 ## 🔧 Installation et Configuration
 
 ### 1️⃣ Nettoyage de Docker (si nécessaire)
