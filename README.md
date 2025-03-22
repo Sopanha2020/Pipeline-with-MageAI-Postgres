@@ -1,4 +1,4 @@
-# ☁️ Projet - Building Pipeline avec MageAI/Postgres (Windows)
+# ☁️ Projet - Building Pipeline avec MageAI/Postgres 
 
 Dans ce projet, nous allons apprendre à créer un pipeline en utilisant les "blocs" de MageAI.
 
