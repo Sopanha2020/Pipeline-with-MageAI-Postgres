@@ -155,9 +155,9 @@ Taskkill /PID [PID] /F
 
 ### 📚 Ressources Additionnelles
 
-    📌 [Documentation Mage AI](https://docs.mage.ai/)
-    📌 [Documentation Docker](https://docs.docker.com/)
-    📌 [Documentation PostgreSQL](https://www.postgresql.org/docs/)
+    [Documentation Mage AI](https://docs.mage.ai/)
+    [Documentation Docker](https://docs.docker.com/)
+    [Documentation PostgreSQL](https://www.postgresql.org/docs/)
 
 ---
 
